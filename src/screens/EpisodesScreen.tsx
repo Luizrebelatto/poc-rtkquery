@@ -19,7 +19,7 @@ export function EpisodesScreen() {
     return (
       <View style={{ padding: 24 }}>
         <ActivityIndicator />
-        <Text>Carregando primeira vez...</Text>
+        <Text>First load...</Text>
       </View>
     );
   }
@@ -27,7 +27,7 @@ export function EpisodesScreen() {
   if (isError) {
     return (
       <View style={{ padding: 24 }}>
-        <Text>Erro ao buscar episódios.</Text>
+        <Text>Error to load episodes</Text>
         <Text>{JSON.stringify(error)}</Text>
         <Button title="Tentar novamente" onPress={refetch} />
       </View>
@@ -36,10 +36,10 @@ export function EpisodesScreen() {
 
   return (
     <View style={{ flex: 1, padding: 24 }}>
-      <Text style={{ fontSize: 24, fontWeight: "bold" }}>Episódios</Text>
+      <Text style={{ fontSize: 24, fontWeight: "bold" }}>Episodes</Text>
 
       {isFetching && (
-        <Text style={{ marginVertical: 8 }}>Atualizando dados...</Text>
+        <Text style={{ marginVertical: 8 }}>Updating data...</Text>
       )}
 
       <FlatList
@@ -63,19 +63,19 @@ export function EpisodesScreen() {
 
       <View style={{ flexDirection: "row", gap: 12 }}>
         <Button
-          title="Página anterior"
+          title="Previous Page"
           disabled={page === 1}
           onPress={() => setPage((current) => current - 1)}
         />
 
         <Button
-          title="Próxima página"
+          title="Next Page"
           disabled={!data?.info.next}
           onPress={() => setPage((current) => current + 1)}
         />
       </View>
 
-      <Button title="Refetch manual" onPress={refetch} />
+      <Button title="Refetch" onPress={refetch} />
     </View>
   );
 }
