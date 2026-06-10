@@ -27,7 +27,8 @@ favoriteEpisode: builder.mutation<
 ```
 
 
-RTK QUERY
+### RTK QUERY
+
 ```
 RTK Query
 
@@ -44,7 +45,8 @@ refetch/cache update
 UI atualiza
 ```
 
-Thunk
+### Thunk
+
 <img width="488" height="586" alt="Screenshot 2026-06-10 at 09 34 30" src="https://github.com/user-attachments/assets/f1704214-c41a-4e32-840b-1eb26bed284b" />
 
 ```javascript
@@ -82,7 +84,7 @@ dispatch(fetchEpisodes());
 ```
 
 
-Saga
+### Saga
 ```
 Saga
 
