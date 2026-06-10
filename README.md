@@ -25,3 +25,59 @@ favoriteEpisode: builder.mutation<
   ],
 });
 ```
+
+
+RTK QUERY
+```
+RTK Query
+
+Button
+  ↓
+favoriteEpisode()
+  ↓
+PATCH
+  ↓
+invalidatesTags
+  ↓
+refetch/cache update
+  ↓
+UI atualiza
+```
+
+Thunk
+```
+Thunk
+
+Button
+  ↓
+dispatch(thunk)
+  ↓
+pending
+  ↓
+PATCH
+  ↓
+fulfilled ou rejected
+  ↓
+reducer atualiza state
+  ↓
+UI atualiza
+```
+
+Saga
+```
+Saga
+
+Button
+  ↓
+dispatch(request action)
+  ↓
+saga escuta action
+  ↓
+call PATCH
+  ↓
+put success/failure
+  ↓
+reducer atualiza state
+  ↓
+UI atualiza
+```
