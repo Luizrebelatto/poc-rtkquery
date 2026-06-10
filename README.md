@@ -45,23 +45,42 @@ UI atualiza
 ```
 
 Thunk
-```
-Thunk
+<img width="488" height="586" alt="Screenshot 2026-06-10 at 09 34 30" src="https://github.com/user-attachments/assets/f1704214-c41a-4e32-840b-1eb26bed284b" />
 
-Button
-  ↓
-dispatch(thunk)
-  ↓
-pending
-  ↓
-PATCH
-  ↓
-fulfilled ou rejected
-  ↓
-reducer atualiza state
-  ↓
-UI atualiza
+```javascript
+const thunk =
+  ({ dispatch, getState }) =>
+  next =>
+  action => {
+    if (typeof action === "function") {
+      return action(dispatch, getState);
+    }
+
+    return next(action);
+  };
+
+const fetchEpisodes = () => async dispatch => {
+  dispatch({ type: "episodes/loading" });
+
+  try {
+    const res = await fetch("https://rickandmortyapi.com/api/episode");
+    const data = await res.json();
+
+    dispatch({
+      type: "episodes/success",
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: "episodes/error",
+      payload: error,
+    });
+  }
+};
+
+dispatch(fetchEpisodes());
 ```
+
 
 Saga
 ```
