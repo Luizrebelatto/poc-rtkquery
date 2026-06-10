@@ -53,4 +53,7 @@ export const {
   useGetEpisodesQuery,
   useGetEpisodeByIdQuery,
   useLazySearchEpisodesByNameQuery,
+  useLazyGetEpisodesQuery,
+  useLazyGetEpisodeByIdQuery,
+  useSearchEpisodesByNameQuery
 } = api;
