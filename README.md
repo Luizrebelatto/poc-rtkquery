@@ -15,7 +15,41 @@ With this library, we have more control over the status of our requests and can 
 - useGetLazy
   - It is only called when the trigger is called.
 
+## How RTK generate the function useQuery and useQueryLazy?
+RTK generate this
+```javascript
+export const {
+  useGetEpisodesQuery,
+  useGetEpisodeByIdQuery,
+  useLazySearchEpisodesByNameQuery,
+  useLazyGetEpisodesQuery,
+  useLazyGetEpisodeByIdQuery,
+  useSearchEpisodesByNameQuery
+} = api;
+```
+- to understand better we can get this function as example `getEpisodes`
+  - RTK query generateNewHooks
+```javascript
+api.useGetEpisodesQuery = api.endpoints.getEpisodes.useQuery;
+api.useLazyGetEpisodesQuery = api.endpoints.getEpisodes.useLazyQuery;
+```
 
+- When you call `useGetEpisodesQuery()` behind the scenes rtk query do this
+```javascript
+function useGetEpisodesQuery() {
+  const dispatch = useDispatch();
+
+  const queryState = useSelector(
+    state => state.rickAndMortyApi.queries["getEpisodes"]
+  );
+
+  useEffect(() => {
+    dispatch(fetchEpisodes());
+  }, [dispatch]);
+
+  return queryState;
+}
+```
 
 ## Request with RTK Query
 ```javascript
