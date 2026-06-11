@@ -126,23 +126,3 @@ const fetchEpisodes = () => async dispatch => {
 
 dispatch(fetchEpisodes());
 ```
-
-
-### Saga
-```
-Saga
-
-Button
-  ↓
-dispatch(request action)
-  ↓
-saga escuta action
-  ↓
-call PATCH
-  ↓
-put success/failure
-  ↓
-reducer atualiza state
-  ↓
-UI atualiza
-```
