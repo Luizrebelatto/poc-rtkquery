@@ -65,22 +65,8 @@ getEpisodes: builder.query<EpisodeResponse, number | void>({
 
 
 ### RTK QUERY
+<img width="382" height="280" alt="Screenshot 2026-06-11 at 09 07 39" src="https://github.com/user-attachments/assets/865a945b-393f-4fa3-b2ae-42c263deaa15" />
 
-```
-RTK Query
-
-Button
-  ↓
-favoriteEpisode()
-  ↓
-PATCH
-  ↓
-invalidatesTags
-  ↓
-refetch/cache update
-  ↓
-UI atualiza
-```
 
 ### Thunk
 
