@@ -6,6 +6,16 @@ With this library, we have more control over the status of our requests and can 
 - Polling
 - Pagination
 
+## `useGet` vs `useGetLazy`
+
+- UseGet
+  - This function is called when the component is mounted.
+  - mostly used for automated searching.
+ 
+- useGetLazy
+  - It is only called when the trigger is called.
+
+
 
 ## Request with RTK Query
 ```javascript
