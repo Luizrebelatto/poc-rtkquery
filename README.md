@@ -53,21 +53,14 @@ function useGetEpisodesQuery() {
 
 ## Request with RTK Query
 ```javascript
-favoriteEpisode: builder.mutation<
-  Episode,
-  { id: number; favorite: boolean }
->({
-  query: ({ id, favorite }) => ({
-    url: `/episodes/${id}`,
-    method: "PATCH",
-    body: { favorite },
-  }),
+getEpisodes: builder.query<EpisodeResponse, number | void>({
+      query: (page) => {
+        if (page) {
+          return `episode?page=${page}`;
+        }
 
-  invalidatesTags: (_result, _error, { id }) => [
-    { type: "Episodes", id },
-    { type: "Episodes", id: "LIST" },
-  ],
-});
+        return "episode";
+      },
 ```
 
 
