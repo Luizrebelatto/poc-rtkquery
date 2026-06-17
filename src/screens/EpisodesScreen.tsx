@@ -7,13 +7,20 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+
 import { useGetEpisodesQuery } from "../service/api";
 
 export function EpisodesScreen() {
   const [page, setPage] = useState(1);
 
-  const { data, isLoading, isFetching, isError, error, refetch } =
-    useGetEpisodesQuery(page);
+  const {
+    data,
+    isLoading,
+    isFetching,
+    isError,
+    error,
+    refetch,
+  } = useGetEpisodesQuery(page);
 
   if (isLoading) {
     return (
@@ -29,22 +36,31 @@ export function EpisodesScreen() {
       <View style={{ padding: 24 }}>
         <Text>Error to load episodes</Text>
         <Text>{JSON.stringify(error)}</Text>
-        <Button title="Tentar novamente" onPress={refetch} />
+
+        <Button title="Try again" onPress={refetch} />
       </View>
     );
   }
 
   return (
     <View style={{ flex: 1, padding: 24 }}>
-      <Text style={{ fontSize: 24, fontWeight: "bold" }}>Episodes</Text>
+      <Text style={{ fontSize: 24, fontWeight: "bold" }}>
+        Episodes
+      </Text>
+
+      <Text style={{ marginVertical: 8 }}>
+        Current page: {page}
+      </Text>
 
       {isFetching && (
-        <Text style={{ marginVertical: 8 }}>Updating data...</Text>
+        <Text style={{ marginVertical: 8 }}>
+          Updating data...
+        </Text>
       )}
 
       <FlatList
-        data={data?.results}
-        keyExtractor={(item) => String(item.id)}
+        data={data?.results ?? []}
+        keyExtractor={item => String(item.id)}
         renderItem={({ item }) => (
           <TouchableOpacity
             style={{
@@ -61,17 +77,23 @@ export function EpisodesScreen() {
         )}
       />
 
-      <View style={{ flexDirection: "row", gap: 12 }}>
+      <View
+        style={{
+          flexDirection: "row",
+          gap: 12,
+          marginVertical: 12,
+        }}
+      >
         <Button
           title="Previous Page"
-          disabled={page === 1}
-          onPress={() => setPage((current) => current - 1)}
+          disabled={page === 1 || isFetching}
+          onPress={() => setPage(current => current - 1)}
         />
 
         <Button
           title="Next Page"
-          disabled={!data?.info.next}
-          onPress={() => setPage((current) => current + 1)}
+          disabled={!data?.info.next || isFetching}
+          onPress={() => setPage(current => current + 1)}
         />
       </View>
 

@@ -6,6 +6,9 @@ With this library, we have more control over the status of our requests and can 
 - Polling
 - Pagination
 
+We have Three layers:
+
+
 ## `useGet` vs `useGetLazy`
 
 - UseGet
@@ -104,4 +107,32 @@ const fetchEpisodes = () => async dispatch => {
 };
 
 dispatch(fetchEpisodes());
+```
+
+## Tree
+```
+├── App.tsx
+├── LICENSE
+├── README.md
+├── app.json
+├── index.js
+├── metro.config.js
+├── package-lock.json
+├── package.json
+├── src
+│   ├── app
+│   │   ├── hooks.ts
+│   │   └── store.ts
+│   ├── features
+│   │   ├── theme
+│   │   │   └── themeSlice.ts
+│   │   └── user
+│   │       └── userSlice.ts
+│   ├── screens
+│   │   └── EpisodesScreen.tsx
+│   ├── service
+│   │   └── api.ts
+│   └── types
+│       └── episode.ts
+└── yarn.lock
 ```
