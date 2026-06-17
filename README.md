@@ -10,7 +10,19 @@ We have Three layers:
 
 <img width="520" height="159" alt="Screenshot 2026-06-16 at 21 43 01" src="https://github.com/user-attachments/assets/94edba42-4884-4b20-8468-d7e0692b0e1e" />
 
-## Arquitecture folders
+Flow:
+
+<img width="471" height="476" alt="Untitled Diagram drawio" src="https://github.com/user-attachments/assets/b934a32b-31d7-4224-940d-c4197b84cae6" />
+
+
+## Architecture
+<img width="605" height="348" alt="Screenshot 2026-06-16 at 22 50 16" src="https://github.com/user-attachments/assets/ff864858-d619-4f38-bd64-c9aca1c70244" />
+
+<img width="681" height="376" alt="Screenshot 2026-06-16 at 23 05 26" src="https://github.com/user-attachments/assets/41663e1a-2606-4bf6-a6c2-ba693db231bf" />
+
+
+
+## Structure folders
 ```
 ├── App.tsx
 ├── LICENSE
