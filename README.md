@@ -8,6 +8,35 @@ With this library, we have more control over the status of our requests and can 
 
 We have Three layers:
 
+<img width="520" height="159" alt="Screenshot 2026-06-16 at 21 43 01" src="https://github.com/user-attachments/assets/94edba42-4884-4b20-8468-d7e0692b0e1e" />
+
+## Arquitecture folders
+```
+├── App.tsx
+├── LICENSE
+├── README.md
+├── app.json
+├── index.js
+├── metro.config.js
+├── package-lock.json
+├── package.json
+├── src
+│   ├── app
+│   │   ├── hooks.ts
+│   │   └── store.ts
+│   ├── features
+│   │   ├── theme
+│   │   │   └── themeSlice.ts
+│   │   └── user
+│   │       └── userSlice.ts
+│   ├── screens
+│   │   └── EpisodesScreen.tsx
+│   ├── service
+│   │   └── api.ts
+│   └── types
+│       └── episode.ts
+└── yarn.lock
+```
 
 ## `useGet` vs `useGetLazy`
 
@@ -107,32 +136,4 @@ const fetchEpisodes = () => async dispatch => {
 };
 
 dispatch(fetchEpisodes());
-```
-
-## Tree
-```
-├── App.tsx
-├── LICENSE
-├── README.md
-├── app.json
-├── index.js
-├── metro.config.js
-├── package-lock.json
-├── package.json
-├── src
-│   ├── app
-│   │   ├── hooks.ts
-│   │   └── store.ts
-│   ├── features
-│   │   ├── theme
-│   │   │   └── themeSlice.ts
-│   │   └── user
-│   │       └── userSlice.ts
-│   ├── screens
-│   │   └── EpisodesScreen.tsx
-│   ├── service
-│   │   └── api.ts
-│   └── types
-│       └── episode.ts
-└── yarn.lock
 ```
